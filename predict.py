@@ -1,6 +1,6 @@
 import numpy as np
 from common import (load_dataset, generate_basis_moments, 
-                    add_bias_and_normalize)
+                    add_bias_and_normalize, predict_all)
 from sklearn.metrics import classification_report
 import pickle
 import argparse
@@ -25,9 +25,6 @@ wall = ans['wall']
 
 Xtestm = generate_basis_moments(images, bas)
 Xtest = add_bias_and_normalize(Xtestm, norms)
-
-def predict_all(X, wall):
-    return np.argmax(X.dot(np.transpose(wall)), axis=1)
 
 ypred = predict_all(Xtest, wall)
 

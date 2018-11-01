@@ -115,3 +115,6 @@ def evalf1(y, ypred):
     fp = np.dot(1 - y, ypred)
     return 2 * tp/(2 * tp + fp +fn)
 
+def predict_all(X, wall):
+    return np.argmax(X.dot(np.transpose(wall)), axis=1)
+
